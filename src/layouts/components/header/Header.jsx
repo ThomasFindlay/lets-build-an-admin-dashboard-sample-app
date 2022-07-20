@@ -3,19 +3,16 @@ import {
   AppBarSection,
   AppBarSpacer,
   Avatar,
+  Menu,
+  MenuItem,
 } from "@progress/kendo-react-layout";
 import { Badge, BadgeContainer } from "@progress/kendo-react-indicators";
-import {
-  Form,
-  Field,
-  FormElement,
-  FieldWrapper,
-} from "@progress/kendo-react-form";
+import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Input } from "@progress/kendo-react-inputs";
 import style from "./Header.module.css";
 import { useDrawerStore } from "../../../stores/drawer.store";
 import clsx from "clsx";
-
+// TODO: Add menu dropdown to the avatar
 const kendokaAvatar =
   "https://www.telerik.com/kendo-react-ui-develop/images/kendoka-react.png";
 
@@ -97,6 +94,7 @@ const Header = props => {
           <Avatar type="image">
             <img src={kendokaAvatar} alt="Avatar" />
           </Avatar>
+          <Menu items={items} />
         </AppBarSection>
       </AppBar>
     </div>
