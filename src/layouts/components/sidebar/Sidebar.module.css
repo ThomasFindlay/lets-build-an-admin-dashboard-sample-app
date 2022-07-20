@@ -1,0 +1,27 @@
+.drawer {
+  min-height: inherit;
+}
+
+.drawerTogglerBtn {
+  min-height: 48px;
+}
+
+.drawerTogglerIcon {
+  transition: transform 0.25s;
+}
+
+.drawerTogglerIconOpen {
+  transform: rotate(180deg);
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 48px;
+}
+
+.title {
+  font-size: 1.25rem;
+  margin: 0rem 1rem;
+}

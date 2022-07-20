@@ -1,0 +1,9 @@
+body,
+html {
+  min-height: 100vh;
+  margin: 0;
+}
+
+#root {
+  min-height: inherit;
+}
