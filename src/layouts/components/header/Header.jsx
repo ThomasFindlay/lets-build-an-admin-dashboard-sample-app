@@ -10,9 +10,8 @@ import { Badge, BadgeContainer } from "@progress/kendo-react-indicators";
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Input } from "@progress/kendo-react-inputs";
 import style from "./Header.module.css";
-import { useDrawerStore } from "../../../stores/drawer.store";
 import clsx from "clsx";
-// TODO: Add menu dropdown to the avatar
+
 const kendokaAvatar =
   "https://www.telerik.com/kendo-react-ui-develop/images/kendoka-react.png";
 
@@ -31,8 +30,6 @@ const FormInput = props => {
 };
 
 const Header = props => {
-  const toggleDrawer = useDrawerStore(store => store.toggleDrawer);
-
   const onSearch = q => {
     console.log("on search", q);
   };
@@ -91,10 +88,21 @@ const Header = props => {
         </AppBarSection>
 
         <AppBarSection>
-          <Avatar type="image">
-            <img src={kendokaAvatar} alt="Avatar" />
-          </Avatar>
-          <Menu items={items} />
+          <Menu>
+            <MenuItem
+              render={() => {
+                return (
+                  <Avatar type="image">
+                    <img src={kendokaAvatar} alt="Avatar" />
+                  </Avatar>
+                );
+              }}
+            >
+              <MenuItem text="Account" />
+              <MenuItem text="Settings" />
+              <MenuItem text="Logout" />
+            </MenuItem>
+          </Menu>
         </AppBarSection>
       </AppBar>
     </div>

@@ -5,7 +5,7 @@ import {
 } from "@progress/kendo-react-layout";
 import { pick } from "lodash-es";
 import clsx from "clsx";
-import { useState, useCallback, useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 import { useDrawerStore } from "../../../stores/drawer.store";
 import shallow from "zustand/shallow";
 import DrawerItem from "./components/DrawerItem";
