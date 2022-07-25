@@ -1,0 +1,28 @@
+.title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.navList {
+  font-size: 14px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.navListItem {
+  margin: 0 10px;
+}
+.navListItem:hover {
+  cursor: pointer;
+  color: #84cef1;
+}
+
+.searchIcon {
+  z-index: 1;
+}
+
+.searchInput {
+  padding-left: 2.25rem !important;
+  width: 14rem !important;
+}

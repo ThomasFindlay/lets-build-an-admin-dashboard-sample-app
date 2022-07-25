@@ -1,0 +1,19 @@
+.drawerItem {
+  width: 100%;
+  background: transparent;
+  text-decoration: none;
+}
+
+.drawerItemArrow {
+  transition: 0.25s transform;
+}
+
+.drawerItemActive,
+.drawerItemActive:focus {
+  background: #0369a1;
+  color: #e0f2fe;
+}
+
+.drawerItemIconActive {
+  color: #0369a1;
+}
