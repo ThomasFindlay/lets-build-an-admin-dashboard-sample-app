@@ -1,5 +1,5 @@
 const Header = props => {
-  return <div></div>;
+  return null;
 };
 
 export default Header;

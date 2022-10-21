@@ -1,5 +1,5 @@
 const DrawerItem = props => {
-  return <div></div>;
+  return null;
 };
 
 export default DrawerItem;
