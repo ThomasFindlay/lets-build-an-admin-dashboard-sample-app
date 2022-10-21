@@ -4,10 +4,25 @@ import style from "./DrawerItem.module.css";
 import clsx from "clsx";
 
 const DrawerItem = props => {
-  const { text, icon, route, items, depth = 0 } = props;
+  const {
+    text,
+    icon,
+    route,
+    items,
+    depth = 0,
+    isDrawerExpanded,
+    isHoveringDrawer,
+  } = props;
 
   if (items) {
-    return <DrawerItemHeader {...props} depth={depth + 1} />;
+    return (
+      <DrawerItemHeader
+        {...props}
+        depth={depth + 1}
+        isDrawerExpanded={isDrawerExpanded}
+        isHoveringDrawer={isHoveringDrawer}
+      />
+    );
   }
 
   return (

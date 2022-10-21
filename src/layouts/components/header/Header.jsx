@@ -13,7 +13,7 @@ import style from "./Header.module.css";
 import clsx from "clsx";
 
 const kendokaAvatar =
-  "https://www.telerik.com/kendo-react-ui-develop/images/kendoka-react.png";
+  "https://demos.telerik.com/kendo-ui/content/web/Customers/RICSU.jpg";
 
 const FormInput = props => {
   return (

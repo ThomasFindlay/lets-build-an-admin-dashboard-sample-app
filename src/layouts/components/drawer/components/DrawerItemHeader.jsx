@@ -3,20 +3,28 @@ import { useLocation } from "react-router-dom";
 import style from "./DrawerItem.module.css";
 import clsx from "clsx";
 import DrawerItem from "./DrawerItem";
-import { useDrawerStore } from "../../../../stores/drawer.store";
 
 const resolveLinkPath = (parentTo, childTo) => `${parentTo}/${childTo}`;
 
 const DrawerItemHeader = props => {
-  const { text, icon, items, route, depth } = props;
+  const {
+    text,
+    icon,
+    items,
+    route,
+    depth,
+    isDrawerExpanded,
+    isHoveringDrawer,
+  } = props;
   const location = useLocation();
-  const isDrawerOpen = useDrawerStore(store => store.isDrawerOpen);
-  const isHoveringDrawer = useDrawerStore(store => store.isHoveringDrawer);
-  const [expanded, setExpand] = useState(location.pathname.includes(route));
+
+  const [isNavItemExpanded, setIsNavItemExpanded] = useState(
+    location.pathname.includes(route)
+  );
 
   const onExpandChange = e => {
     e.preventDefault();
-    setExpand(expanded => !expanded);
+    setIsNavItemExpanded(isNavItemExpanded => !isNavItemExpanded);
   };
 
   return (
@@ -38,17 +46,17 @@ const DrawerItemHeader = props => {
             className={clsx(
               "k-icon k-i-chevron-down",
               style.drawerItemArrow,
-              expanded && "k-rotate-180"
+              isNavItemExpanded && "k-rotate-180"
             )}
           />
         </div>
       </button>
 
-      {expanded && (
+      {isNavItemExpanded && (
         <div
           className={clsx(
             style.navChildrenBlock,
-            !isDrawerOpen && !isHoveringDrawer && "k-display-none"
+            !isDrawerExpanded && !isHoveringDrawer && "k-display-none"
           )}
         >
           {items.map((item, index) => {
@@ -59,6 +67,8 @@ const DrawerItemHeader = props => {
                 {...item}
                 depth={depth + 1}
                 route={resolveLinkPath(props.route, item.route)}
+                isDrawerExpanded={isDrawerExpanded}
+                isHoveringDrawer={isHoveringDrawer}
               />
             );
           })}
