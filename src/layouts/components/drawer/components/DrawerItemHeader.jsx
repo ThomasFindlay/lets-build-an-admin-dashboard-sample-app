@@ -7,15 +7,7 @@ import DrawerItem from "./DrawerItem";
 const resolveLinkPath = (parentTo, childTo) => `${parentTo}/${childTo}`;
 
 const DrawerItemHeader = props => {
-  const {
-    text,
-    icon,
-    items,
-    route,
-    depth,
-    isDrawerExpanded,
-    isHoveringDrawer,
-  } = props;
+  const { text, icon, items, route, depth, isDrawerExpanded } = props;
   const location = useLocation();
 
   const [isNavItemExpanded, setIsNavItemExpanded] = useState(
@@ -56,7 +48,7 @@ const DrawerItemHeader = props => {
         <div
           className={clsx(
             style.navChildrenBlock,
-            !isDrawerExpanded && !isHoveringDrawer && "k-display-none"
+            !isDrawerExpanded && "k-display-none"
           )}
         >
           {items.map((item, index) => {
@@ -68,7 +60,6 @@ const DrawerItemHeader = props => {
                 depth={depth + 1}
                 route={resolveLinkPath(props.route, item.route)}
                 isDrawerExpanded={isDrawerExpanded}
-                isHoveringDrawer={isHoveringDrawer}
               />
             );
           })}

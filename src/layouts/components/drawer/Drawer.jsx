@@ -10,20 +10,19 @@ import style from "./Drawer.module.css";
 import { useDrawerState } from "./hooks/useDrawerState";
 
 const AppDrawer = props => {
-  const { isDrawerExpanded, toggleDrawer, isHoveringDrawer, drawerRef } =
-    useDrawerState();
+  const { isDrawerExpanded, toggleDrawer, drawerRef } = useDrawerState();
 
   return (
     <Drawer
       className={style.drawer}
-      expanded={isDrawerExpanded || isHoveringDrawer}
+      expanded={isDrawerExpanded}
       position={"start"}
       mode={"push"}
       mini={true}
     >
       <DrawerNavigation ref={drawerRef}>
         <div className={style.titleContainer}>
-          {isDrawerExpanded || isHoveringDrawer ? (
+          {isDrawerExpanded ? (
             <h1 className={style.title}>KendoReact</h1>
           ) : null}
           <button
@@ -49,7 +48,6 @@ const AppDrawer = props => {
                 key={`${item.text}-${idx}`}
                 {...item}
                 isDrawerExpanded={isDrawerExpanded}
-                isHoveringDrawer={isHoveringDrawer}
               />
             );
           })}
