@@ -1,8 +1,14 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useLocalstorageState } from "rooks";
 
 export const useDrawerState = () => {
-  const [isDrawerExpanded, setIsDrawerExpanded] = useState(true);
+  const [isDrawerExpanded, setIsDrawerExpanded] = useLocalstorageState(
+    "dashboard-app:drawer-expanded",
+    true
+  );
+
   const [isHoveringDrawer, setIsHoveringDrawer] = useState(false);
+  const drawerRef = useRef(null);
 
   const openDrawer = useCallback(() => {
     setIsDrawerExpanded(true);
@@ -13,8 +19,8 @@ export const useDrawerState = () => {
   }, []);
 
   const toggleDrawer = useCallback(() => {
-    setIsDrawerExpanded(val => !val);
-  }, []);
+    setIsDrawerExpanded(!isDrawerExpanded);
+  }, [isDrawerExpanded]);
 
   const startHoveringDrawer = useCallback(() => {
     setIsHoveringDrawer(true);
@@ -22,8 +28,6 @@ export const useDrawerState = () => {
   const stopHoveringDrawer = useCallback(() => {
     setIsHoveringDrawer(false);
   }, []);
-
-  const drawerRef = useRef(null);
 
   useEffect(() => {
     if (!drawerRef.current) return;
