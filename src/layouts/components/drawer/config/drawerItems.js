@@ -56,7 +56,7 @@ export const drawerItems = [
   {
     icon: "k-i-paint",
     text: "Styling & Themes",
-    route: "styling-and-themes",
+    route: "/styling-and-themes",
     items: [
       {
         text: "Overview",
@@ -85,6 +85,6 @@ export const drawerItems = [
   {
     icon: "k-i-overlap",
     text: "Common Features",
-    route: "common-features",
+    route: "/common-features",
   },
 ];
